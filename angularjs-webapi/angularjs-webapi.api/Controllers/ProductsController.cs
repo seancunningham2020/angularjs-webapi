@@ -11,11 +11,11 @@ namespace angularjs_webapi.api.Controllers
 {
     public class ProductsController : ApiController
     {
-        private readonly ProductRepository productRepository;
+        private readonly IProductRepository productRepository;
 
-        public ProductsController()
+        public ProductsController(IProductRepository productRepository)
         {
-            productRepository = new ProductRepository();
+            this.productRepository = productRepository;
         }
 
         // GET: api/Products

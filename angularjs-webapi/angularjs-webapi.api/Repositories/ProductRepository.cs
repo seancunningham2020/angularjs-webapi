@@ -7,7 +7,7 @@ using angularjs_webapi.api.Models;
 
 namespace angularjs_webapi.api.Repositories
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly FakeDb fakeDb = FakeDb.Instance;
 

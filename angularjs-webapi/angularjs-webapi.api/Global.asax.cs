@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using angularjs_webapi.api.App_Start;
 
 namespace angularjs_webapi.api
 {
@@ -12,6 +13,7 @@ namespace angularjs_webapi.api
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            ContainerConfig.SetUp();
         }
     }
 }
