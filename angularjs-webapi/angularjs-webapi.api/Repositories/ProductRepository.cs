@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using angularjs_webapi.api.Data;
 using angularjs_webapi.api.Models;
 
@@ -10,7 +11,7 @@ namespace angularjs_webapi.api.Repositories
 
         public List<Product> GetAll()
         {
-            return fakeDb.GetAll();
+            return fakeDb.GetAll().ToList();
         }
 
         public Product Get(int productId)
