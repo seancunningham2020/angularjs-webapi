@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using angularjs_webapi.api.Models;
 
 namespace angularjs_webapi.api.Data
@@ -51,6 +52,16 @@ namespace angularjs_webapi.api.Data
         public List<Product> GetAll()
         {
             return productList;
+        }
+
+        public bool Update(Product product)
+        {
+            var productToUpdate = productList.Single(x => x.Id == product.Id);
+
+            productToUpdate.Name = product.Name;
+            productToUpdate.Active = product.Active;
+
+            return true;
         }
     }
 }

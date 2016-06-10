@@ -31,18 +31,29 @@ namespace angularjs_webapi.api.Controllers
         }
 
         // POST: api/Products
-        public void Post([FromBody]string value)
+        public Product Post([FromBody]Product product)
         {
+            return productRepository.Add(product);
         }
 
         // PUT: api/Products/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]Product product)
         {
+            if (!productRepository.Update(product))
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
         }
 
         // DELETE: api/Products/5
         public void Delete(int id)
         {
+            var product = productRepository.Get(id);
+            if (product == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            productRepository.Remove(id);
         }
     }
 }
