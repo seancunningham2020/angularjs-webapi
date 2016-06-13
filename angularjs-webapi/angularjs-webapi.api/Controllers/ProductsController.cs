@@ -31,7 +31,8 @@ namespace angularjs_webapi.api.Controllers
         }
 
         // POST: api/Products
-        public Product Post([FromBody]Product product)
+        [HttpPost]
+        public Product Post(Product product)
         {
             return productRepository.Add(product);
         }
