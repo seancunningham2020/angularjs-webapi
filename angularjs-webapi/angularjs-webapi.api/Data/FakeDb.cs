@@ -46,7 +46,7 @@ namespace angularjs_webapi.api.Data
 
         public Product Get(int productId)
         {
-            return productList.Single(x => x.Id == productId);
+            return productList.Find(x => x.Id == productId);
         }
 
         public List<Product> GetAll()
