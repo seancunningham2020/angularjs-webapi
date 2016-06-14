@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using angularjs_webapi.api.Models;
 using angularjs_webapi.api.Repositories;
@@ -19,42 +16,70 @@ namespace angularjs_webapi.api.Controllers
         }
 
         // GET: api/Products
-        public IEnumerable<Product> Get()
+        [HttpGet]
+        public IHttpActionResult Get()
         {
-            return productRepository.GetAll();
+            var products = productRepository.GetAll();
+
+            if (products == null)
+            {
+                return NotFound();
+            }
+
+            return Ok<IEnumerable<Product>>(products);
         }
 
         // GET: api/Products/5
-        public Product Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return productRepository.Get(id);
+            var product = productRepository.Get(id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(product);
         }
 
         // POST: api/Products
         [HttpPost]
-        public Product Post(Product product)
+        public IHttpActionResult Post(Product product)
         {
-            return productRepository.Add(product);
+            var result = productRepository.Add(product);
+
+            if (result == null)
+            {
+                return InternalServerError();
+            }
+
+            return Created(string.Empty, result);
         }
 
         // PUT: api/Products/5
-        public void Put([FromBody]Product product)
+        [HttpPut]
+        public IHttpActionResult Put(Product product)
         {
             if (!productRepository.Update(product))
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return StatusCode(HttpStatusCode.NotModified);
             }
+
+            return Ok();
         }
 
         // DELETE: api/Products/5
-        public void Delete(int id)
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
         {
             var product = productRepository.Get(id);
             if (product == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             }
             productRepository.Remove(id);
+
+            return Ok();
         }
     }
 }
