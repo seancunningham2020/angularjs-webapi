@@ -46,8 +46,12 @@ namespace angularjs_webapi.api.Controllers
         [HttpPost]
         public IHttpActionResult Post(Product product)
         {
-            var result = productRepository.Add(product);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            var result = productRepository.Add(product);
             if (result == null)
             {
                 return InternalServerError();
@@ -60,6 +64,11 @@ namespace angularjs_webapi.api.Controllers
         [HttpPut]
         public IHttpActionResult Put(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             if (!productRepository.Update(product))
             {
                 return StatusCode(HttpStatusCode.NotModified);
