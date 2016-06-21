@@ -1,0 +1,13 @@
+*.DS_Store
+[Tt]humbs.db
+
+[Bb]in
+[Oo]bj
+
+*.suo
+*.user
+*.cache
+.vs
+
+[Pp]ackages
+*.config.transformed
