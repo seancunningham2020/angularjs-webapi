@@ -58,3 +58,6 @@ F:\github\angularjs-webapi\angularjs-webapi\angularjs-webapi.api\bin\System.Web.
 F:\github\angularjs-webapi\angularjs-webapi\angularjs-webapi.api\obj\Debug\angularjs-webapi.api.csprojResolveAssemblyReference.cache
 F:\github\angularjs-webapi\angularjs-webapi\angularjs-webapi.api\obj\Debug\angularjs-webapi.api.dll
 F:\github\angularjs-webapi\angularjs-webapi\angularjs-webapi.api\obj\Debug\angularjs-webapi.api.pdb
+F:\github\angularjs-webapi\angularjs-webapi\angularjs-webapi.api\bin\System.Web.Cors.dll
+F:\github\angularjs-webapi\angularjs-webapi\angularjs-webapi.api\bin\System.Web.Http.Cors.dll
+F:\github\angularjs-webapi\angularjs-webapi\angularjs-webapi.api\bin\System.Web.Http.Cors.xml
