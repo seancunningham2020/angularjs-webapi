@@ -66,6 +66,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Controllers\mainController.js" />
+    <Content Include="App\Views\Home.html" />
+    <Content Include="App\Views\Product.html" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -75,8 +78,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controllers\homeController.js" />
-    <Content Include="Index.html" />
+    <Content Include="App\app.js" />
+    <Content Include="App\Controllers\productsController.js" />
+    <Content Include="App\Index.html" />
+    <Content Include="App\Views\Products.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
